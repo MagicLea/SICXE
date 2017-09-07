@@ -1,0 +1,48 @@
+LINE  LOC  LABEL    OP    OPERAND ObjectCode
+
+   1 0000   COPY START          0
+   2 0000  FIRST   STL     RETADR 17202D
+   3 0003          LDB    #LENGTH 69202D
+   4              BASE     LENGTH
+   5 0006  CLOOP +JSUB      RDREC 4B101036
+   6 000A          LDA     LENGTH 032026
+   7 000D         COMP         #0 290000
+   8 0010          JEQ     ENDFIL 332007
+   9 0013        +JSUB      WRREC 4B10105D
+  10 0017            J      CLOOP 3F2FEC
+  11 001A ENDFIL   LDA        EOF 032010
+  12 001D          STA     BUFFER 0F2016
+  13 0020          LDA         #3 010003
+  14 0023          STA     LENGTH 0F200D
+  15 0026        +JSUB      WRREC 4B10105D
+  16 002A            J    @RETADR 3E2003
+  17 002D    EOF  WORD    4542278 454F46
+  18 0030 RETADR  RESW          1
+  19 0033 LENGTH  RESW          1
+  20 0036 BUFFER  RESB       4096
+  24 1036  RDREC CLEAR          X B410
+  25 1038        CLEAR          A B400
+  26 103A        CLEAR          S B440
+  27 103C         +LDT      #4096 75101000
+  28 1040  RLOOP    TD      INPUT E32019
+  29 1043          JEQ      RLOOP 332FFA
+  30 1046           RD      INPUT DB2013
+  31 1049        COMPR        A,S A004
+  32 104B          JEQ       EXIT 332008
+  33 104E         STCH   BUFFER,X 57C003
+  34 1051         TIXR          T B850
+  35 1053          JLT      RLOOP 3B2FEA
+  36 1056   EXIT   STX     LENGTH 134000
+  37 1059         RSUB            4F0000
+  38 105C  INPUT  BYTE        241 F1
+  42 105D  WRREC CLEAR          X B410
+  43 105F          LDT     LENGTH 774000
+  44 1062  WLOOP    TD     OUTPUT E32011
+  45 1065          JEQ      WLOOP 332FFA
+  46 1068         LDCH   BUFFER,X 53C003
+  47 106B           WD     OUTPUT DF2008
+  48 106E         TIXR          T B850
+  49 1070          JLT      WLOOP 3B2FEF
+  50 1073         RSUB            4F0000
+  51 1076 OUTPUT  BYTE          5 05
+  52 1077          END      FIRST
