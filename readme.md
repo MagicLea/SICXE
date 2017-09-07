@@ -1,60 +1,64 @@
 # SICXE Assembler
-* ¤ä´©¡G©Ò¦³ SIC/XE «ü¥O¡B²ÕÄ¶¾¹«ü¥O(START/END/BYTE/WORD/RESB/RESW/BASE)¡B°ò©³¬Û¹ï/PC ¬Û¹ï/ÂX®i©w§}¡Bµ{¦¡­«©w¦ì
-* ¤£¤ä´©¡G²ÕÄ¶¾¹«ü¥O(LTORG/EQU/USE/CSECT/EXTDEF/EXTREF)¡B±`­È¡B¹Bºâ¦¡
+* **æ”¯æ´ï¼š** æ‰€æœ‰ SIC/XE æŒ‡ä»¤ã€çµ„è­¯å™¨æŒ‡ä»¤(START/END/BYTE/WORD/RESB/RESW/BASE)ã€åŸºåº•ç›¸å°/PC ç›¸å°/æ“´å±•å®šå€ã€ç¨‹å¼é‡å®šä½
+* **ä¸æ”¯æ´ï¼š** çµ„è­¯å™¨æŒ‡ä»¤(LTORG/EQU/USE/CSECT/EXTDEF/EXTREF)ã€å¸¸å€¼ã€é‹ç®—å¼
 
-## ¨Ï¥Î¤èªk
-°²³]sourceFilePath ¬°»İ²ÕÄ¶ªº­ì©l½XÀÉ®×©Ò¦b¸ô®|¡C
+## ä½¿ç”¨æ–¹æ³•
+å‡è¨­sourceFilePath ç‚ºéœ€çµ„è­¯çš„åŸå§‹ç¢¼æª”æ¡ˆæ‰€åœ¨è·¯å¾‘ã€‚
 ```
 $ java SICXEASM sourceFilePath
 ```
-## ¿é¤J®æ¦¡
-* ©Ò¦³¤º®e¬Ò¬°¤j¤p¼g±Ó·P¡C
-* ©Ò¦³ SIC/XE «ü¥O¡B²ÕÄ¶¾¹«ü¥O ¬Ò»İ¬°¤j¼g¡C
-* ¥H¡¦.¡¦¬°¶}ÀYªº Line µø¬° Comment Line¡C
-* ¨C¦æ®æ¦¡¬°[Label]¡BMnemonic¡B[Operand]¡B[Comment]¡A¨ä¤¤¥HªÅ¥Õ¦r¤¸¹j¶}
-* Label ¬°¥i¿ïÄæ¦ì¡A¨Ì·Ó¨Ï¥Î»İ¨D¨M©w¡C¥Ñ­^¼Æ¦r©³½u²Õ¦¨¡Aªø«×³Ìªø¬°6­Ó¦r¤¸¡A¤£¥i»P«ü¥O¦WºÙ©Î¼È¦s¾¹¦WºÙ¬Û¦P¡C
-* Mnemonic ¬°¥²¶ñÄæ¦ì¡A°£«D¦¹ Line ¬° Comment Line¡C
-* Operand ¬°¥i¿ïÄæ¦ì¡A¨Ì·Ó¨Ï¥Îªº«ü¥O¨M©w¡A¤£¥i¥]§tªÅ¥Õ¦r¤¸¡Aªø«×³Ìªø¬° 10 ­Ó¦r¤¸¡C
-* Comment ¬°¥i¿ïÄæ¦ì¡A»İ¥H¡¦.¡¦¶}ÀY¡C 
+## è¼¸å…¥æ ¼å¼
+* æ‰€æœ‰å…§å®¹çš†ç‚ºå¤§å°å¯«æ•æ„Ÿã€‚
+* æ‰€æœ‰ SIC/XE æŒ‡ä»¤ã€çµ„è­¯å™¨æŒ‡ä»¤ çš†éœ€ç‚ºå¤§å¯«ã€‚
+* ä»¥â€™.â€™ç‚ºé–‹é ­çš„ Line è¦–ç‚º Comment Lineã€‚
+* æ¯è¡Œæ ¼å¼ç‚º[Label]ã€Mnemonicã€[Operand]ã€[Comment]ï¼Œå…¶ä¸­ä»¥ç©ºç™½å­—å…ƒéš”é–‹
+* Label ç‚ºå¯é¸æ¬„ä½ï¼Œä¾ç…§ä½¿ç”¨éœ€æ±‚æ±ºå®šã€‚ç”±è‹±æ•¸å­—åº•ç·šçµ„æˆï¼Œé•·åº¦æœ€é•·ç‚º6å€‹å­—å…ƒï¼Œä¸å¯èˆ‡æŒ‡ä»¤åç¨±æˆ–æš«å­˜å™¨åç¨±ç›¸åŒã€‚
+* Mnemonic ç‚ºå¿…å¡«æ¬„ä½ï¼Œé™¤éæ­¤ Line ç‚º Comment Lineã€‚
+* Operand ç‚ºå¯é¸æ¬„ä½ï¼Œä¾ç…§ä½¿ç”¨çš„æŒ‡ä»¤æ±ºå®šï¼Œä¸å¯åŒ…å«ç©ºç™½å­—å…ƒï¼Œé•·åº¦æœ€é•·ç‚º 10 å€‹å­—å…ƒã€‚
+* Comment ç‚ºå¯é¸æ¬„ä½ï¼Œéœ€ä»¥â€™.â€™é–‹é ­ã€‚ 
 
-## ¿é¥X®æ¦¡
-¦@¿é¥X¨â­ÓÀÉ®×¡C
-1. Assembly Listing: ©R¦W¬°¡uasmList.txt¡v¡A¦s©ñ©ó¦P­ì©l½X¥Ø¿ı¡A®æ¦¡¦p½Ò¥» Fig2.8¡C
-2. Object Program: ©R¦W¬°¡uobjProgram.txt¡v¡A¦s©ñ©ó¦P­ì©l½X¥Ø¿ı¡A®æ¦¡¦p½Ò¥» Fig2.6¡C ¿ù»~¸ê°Tª½±µ±q stdout ¿é¥X¡C ¨Ò¦p ![error-screen](https://raw.githubusercontent.com/magiclea/SICXE/master/resources/assembler-error-screen.png)
+## è¼¸å‡ºæ ¼å¼
+å…±è¼¸å‡ºå…©å€‹æª”æ¡ˆã€‚
+1. Assembly Listing: å‘½åç‚ºã€ŒasmList.txtã€ï¼Œå­˜æ”¾æ–¼åŒåŸå§‹ç¢¼ç›®éŒ„ï¼Œæ ¼å¼å¦‚èª²æœ¬ Fig2.8ã€‚
+2. Object Program: å‘½åç‚ºã€ŒobjProgram.txtã€ï¼Œå­˜æ”¾æ–¼åŒåŸå§‹ç¢¼ç›®éŒ„ï¼Œæ ¼å¼å¦‚èª²æœ¬ Fig2.6ã€‚ éŒ¯èª¤è³‡è¨Šç›´æ¥å¾ stdout è¼¸å‡ºã€‚ ä¾‹å¦‚ï¼šã€€![error-screen](https://raw.githubusercontent.com/magiclea/SICXE/master/resources/assembler-error-screen.png)
 
-## °õ¦æµ²ªG½d¨Ò
-### ´ú¸Õ¸ê®Æ
-¬°±Æª©¤§«K¡A¶ÈªşºI¹Ï¡A¥ş¤å©ñ©óªş¥ó¡usrcExample.txt¡v¡C
+## åŸ·è¡Œçµæœç¯„ä¾‹
+### æ¸¬è©¦è³‡æ–™
+ç‚ºæ’ç‰ˆä¹‹ä¾¿ï¼Œåƒ…é™„æˆªåœ–ï¼Œå…¨æ–‡æ”¾æ–¼é™„ä»¶ã€ŒsrcExample.txtã€ã€‚
+
 ![input-screen](https://raw.githubusercontent.com/magiclea/SICXE/master/resources/assembler-input-screen.png)
-### ¿é¥Xµ²ªG
-¬°±Æª©¤§«K¡A¶ÈªşºI¹Ï¡A¥ş¤å©ñ©óªş¥ó¡uasmList.txt¡v¡B¡uobjProgram.txt¡v¡C
+### è¼¸å‡ºçµæœ
+ç‚ºæ’ç‰ˆä¹‹ä¾¿ï¼Œåƒ…é™„æˆªåœ–ï¼Œå…¨æ–‡æ”¾æ–¼é™„ä»¶ã€ŒasmList.txtã€ã€ã€ŒobjProgram.txtã€ã€‚
+
 ![assembler-output-asmlist](https://raw.githubusercontent.com/magiclea/SICXE/master/resources/assembler-output-asmlist-screen.png)
 ![assembler-output-objprogram](https://raw.githubusercontent.com/magiclea/SICXE/master/resources/assembler-output-objprogram-screen.png)
 
 # SICXE Linker
-* ¤ä´©¡G°ò¥»¸ü¤J»P³sµ²¡B­«©w¦ì
-* ¤£¤ä´©¡G°ÊºA³sµ² 
+* **æ”¯æ´ï¼š** åŸºæœ¬è¼‰å…¥èˆ‡é€£çµã€é‡å®šä½
+* **ä¸æ”¯æ´ï¼š** å‹•æ…‹é€£çµ 
 
-## ¨Ï¥Î¤èªk
-°²³]sourceFilePath ¬°»İ¸ü¤J»P³sµ²ªº ObjectProgram ÀÉ®×©Ò¦b¸ô®|¡C
+## ä½¿ç”¨æ–¹æ³•
+å‡è¨­sourceFilePath ç‚ºéœ€è¼‰å…¥èˆ‡é€£çµçš„ ObjectProgram æª”æ¡ˆæ‰€åœ¨è·¯å¾‘ã€‚
 ```
 $ java SICXELiner sourceFilePath
 ```
-## ¿é¤J®æ¦¡
-* ©Ò¦³¤º®e¬Ò¬°¤j¤p¼g±Ó·P¡C 
-* ¦p½Ò¥»©Ò­q H/T/D/M/R/E Record ªº®æ¦¡ 
-* ¤ä´©±N¦h­Ó¦P¦ì§}ªº M Record ¦X¨Ö¦¨¤@¶µ¡C¨Ò¦p±N M00005706-LISTC¡BM00005706+ENDC ¦X¨Ö¦¨ M00005706-LISTC +ENDC
-* ¥u±µ¨üÅª¤J¤@­ÓÀÉ®×¡A­Y¦³¦h­Ó Object Program ¶·¥ı¦æ¦X¨Ö¡C
+## è¼¸å…¥æ ¼å¼
+* æ‰€æœ‰å…§å®¹çš†ç‚ºå¤§å°å¯«æ•æ„Ÿã€‚ 
+* å¦‚èª²æœ¬æ‰€è¨‚ H/T/D/M/R/E Record çš„æ ¼å¼ 
+* æ”¯æ´å°‡å¤šå€‹åŒä½å€çš„ M Record åˆä½µæˆä¸€é …ã€‚ä¾‹å¦‚å°‡ M00005706-LISTCã€M00005706+ENDC åˆä½µæˆ M00005706-LISTC +ENDC
+* åªæ¥å—è®€å…¥ä¸€å€‹æª”æ¡ˆï¼Œè‹¥æœ‰å¤šå€‹ Object Program é ˆå…ˆè¡Œåˆä½µã€‚
 
-## ¿é¥X®æ¦¡
-* °²³]¨t²Î¤À°t°O¾ĞÅé¦ì§}¬° 0x4000¡C
-* ¦b¿Ã¹õ¤W¦L¥X Load Map ©M Memory ¸ê°T¡C
+## è¼¸å‡ºæ ¼å¼
+* å‡è¨­ç³»çµ±åˆ†é…è¨˜æ†¶é«”ä½å€ç‚º 0x4000ã€‚
+* åœ¨è¢å¹•ä¸Šå°å‡º Load Map å’Œ Memory è³‡è¨Šã€‚
 
-## °õ¦æµ²ªG½d¨Ò
-### ´ú¸Õ¸ê®Æ
-¬°±Æª©¤§«K¡A¶ÈªşºI¹Ï¡A¥ş¤å©ñ©óªş¥ó¡uinputEaxmple.txt¡v¡C
+## åŸ·è¡Œçµæœç¯„ä¾‹
+### æ¸¬è©¦è³‡æ–™
+ç‚ºæ’ç‰ˆä¹‹ä¾¿ï¼Œåƒ…é™„æˆªåœ–ï¼Œå…¨æ–‡æ”¾æ–¼é™„ä»¶ã€ŒinputEaxmple.txtã€ã€‚
+
 ![input screen](https://raw.githubusercontent.com/magiclea/SICXE/master/resources/linker-input-screen.png)
-### ¿é¥Xµ²ªG
-¬°±Æª©¤§«K¡A¶ÈªşºI¹Ï¡A¥ş¤å©ñ©óªş¥ó¡uoutputEaxmple.txt¡v¡C
+### è¼¸å‡ºçµæœ
+ç‚ºæ’ç‰ˆä¹‹ä¾¿ï¼Œåƒ…é™„æˆªåœ–ï¼Œå…¨æ–‡æ”¾æ–¼é™„ä»¶ã€ŒoutputEaxmple.txtã€ã€‚
+
  ![output screen](https://raw.githubusercontent.com/magiclea/SICXE/master/resources/linker-output-screen.png)
 
